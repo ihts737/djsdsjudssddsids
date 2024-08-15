@@ -38,4 +38,4 @@ async def on_invite_create(invite):
         except Exception as e:
             print(f"Failed to revoke invite {invite.url}: {e}")
 
-bot.run('MTI3MzYyMjUyOTY2MzE3NjgxMQ.GZfMdo.cfYnt_s8zND5SQtX6RlaaFdz8pbtnNumlL05Xs')
+bot.run(os.getenv('DISCORD_TOKEN'))
