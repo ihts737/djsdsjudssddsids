@@ -1,22 +1,8 @@
 import os
 import discord
 from discord.ext import commands
-from flask import Flask
-from threading import Thread
-
-app = Flask('')
-
-@app.route('/')
-def home():
-    return "I'm alive"
-
-def run():
-    port = int(os.getenv("PORT", 8080))  
-    app.run(host='0.0.0.0', port=port)
-
-def keep_alive():
-    t = Thread(target=run)
-    t.start()
+from keep_alive import keep_alive
+keep_alive()
 
 intents = discord.Intents.default()
 intents.members = True
