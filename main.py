@@ -96,6 +96,15 @@ async def on_member_update(before, after):
                                 print(f"Failed to kick {log_entry.user.name}#{log_entry.user.discriminator}: {e}")
 
 @bot.event
+async def on_member_join(member):
+    if raid_mode:
+        try:
+            await member.ban(reason="Automatic ban due to raid mode.")
+            print(f"Banned {member.name}#{member.discriminator}")
+        except Exception as e:
+            print(f"Failed to ban {member.name}#{member.discriminator}: {e}")
+
+@bot.event
 async def on_invite_create(invite):
     if raid_mode:
         try:
